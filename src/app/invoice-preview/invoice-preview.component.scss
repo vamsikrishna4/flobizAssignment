@@ -1,0 +1,88 @@
+label {
+  margin-bottom: 0;
+}
+
+.bodyText,
+label {
+  font-size: 13px;
+}
+.borderAround {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  background-color: white;
+}
+.section1 {
+  border-right: 1px solid #dee2e6;
+}
+.border-bottom {
+  border-bottom: 1px solid #dee2e6;
+}
+.addRow {
+  text-align: center;
+  border-radius: 5px;
+  border: 1px dashed;
+  margin-bottom: 2%;
+  background-color: #d5f4e6;
+  border-color: #3366ff;
+  color: #3366ff;
+  padding: 3%;
+  cursor: pointer;
+}
+
+.addItem {
+  padding: 1%;
+}
+table {
+  width: 100%;
+}
+
+.margin-bottom {
+  margin-bottom: 3%;
+}
+.invoice-details {
+  padding-top: 4%;
+}
+.margin-top {
+  margin-top: 2%;
+}
+.txtPadding {
+  padding: 3%;
+}
+.mat-column-name {
+  width: 45% !important;
+  border-right: 1px solid #d8d8d8;
+}
+.mat-column-quantity,
+.mat-column-rate {
+  border-right: 1px solid #d8d8d8;
+  padding-left: 2%;
+}
+.mat-column-amount {
+  text-align: end;
+}
+
+.mat-header-row {
+  height: 30px;
+  background-color: #8080802e;
+}
+tbody > tr.mat-row {
+  height: 30px;
+  background-color: white;
+}
+.bold-text {
+  font-size: large;
+  font-weight: 600;
+}
+.square {
+  background: #dee2e6;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 4px;
+  margin: 4vh;
+  padding: 4vh 4vh 0 3vh;
+  font-size: 13px;
+}
+.del_icon {
+  cursor: pointer;
+  font-size: medium;
+}

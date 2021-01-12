@@ -1,0 +1,27 @@
+<form [formGroup]="detailsForm">
+  <div class="row">
+    <div class="square">
+      <span class="material-icons">
+        image
+      </span>
+    </div>
+
+  </div>
+  <span class="upload-text"> upload photo</span>
+
+
+  <div class="form-group">
+    <div>
+      <label for="business">Business Name *</label>
+      <input formControlName="business" class="form-control" placeholder="Enter your name" />
+      <span class="error-text" *ngIf="(form.business.touched || submitted)">
+        <span *ngIf="form.business.errors?.required">
+          Business Name is required </span>
+      </span>
+    </div>
+    <div>
+      <label for="business">Address</label>
+      <input formControlName="address" class="form-control" placeholder="Enter your address" />
+    </div>
+  </div>
+</form>

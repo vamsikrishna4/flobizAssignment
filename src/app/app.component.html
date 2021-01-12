@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="row titlePadding">
+    <div class="col-md-11">Create Invoice</div>
+    <button type="button" [disabled]="isDisabled" class="btn btn-primary btn-sm col-md-1 btnColor" (click)="onSave()">
+      Save Invoice
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-md-4 header">
+      <div>Your Business Details</div>
+    </div>
+    <div class="col-md-8 header">
+      <div>Invoice Preview</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 section1">
+      <app-business-details></app-business-details>
+    </div>
+    <div class="col-md-8 section2 bgGrey">
+      <app-invoice-preview></app-invoice-preview>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

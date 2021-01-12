@@ -1,0 +1,36 @@
+<form [formGroup]="addPartyForm">
+  <div>
+    <h5>Create New Party</h5>
+    <div class="col-md-12">
+      <label for="name">Party Name *</label>
+      <input formControlName="partyName" class="form-control" placeholder="Enter party name" />
+      <span class="error-text" *ngIf="(form.partyName.touched || submitted) && form.partyName.errors?.required">
+        Party name is required
+      </span>
+    </div>
+    <div class="col-md-12">
+      <label for="mblNumber">Mobile Number</label>
+      <input formControlName="mblNumber" class="form-control" placeholder="Enter Mobile Number" />
+      <span class="error-text" *ngIf="(form.mblNumber.touched || submitted)">
+        <span *ngIf="form.mblNumber.errors?.pattern">
+          Invlid mobile Number </span>
+      </span>
+    </div>
+    <div class="col-md-12">
+      <label for="address">Address</label>
+      <input formControlName="address" class="form-control" placeholder="Enter your address" />
+
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 topPadding">
+        <button (click)="onCancel()" class="btn">Cancel</button>
+        <button type="submit" [disabled]="addPartyForm.invalid" (click)="onSave()"
+          class="btn btn-primary btn-sm btnColor">
+          Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+</form>

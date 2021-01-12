@@ -1,0 +1,47 @@
+<form [formGroup]="addItemForm">
+  <div>
+    <h5>Create New Item</h5>
+    <div class="row">
+      <div class="col-md-12">
+        <label for="name">Item Name *</label>
+        <input formControlName="name" class="form-control" placeholder="Enter Item Name" />
+        <span class="error-text" *ngIf="(form.name.touched || submitted) && form.name.errors?.required">
+          Name is required
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="mblNumber">Quantity *</label>
+        <input formControlName="quantity" class="form-control" placeholder="Enter Quantity" />
+        <span class="error-text" *ngIf="(form.quantity.touched || submitted)">
+          <span *ngIf="form.quantity.errors?.required">
+            Quantity is required </span>
+          <span *ngIf="form.quantity.errors?.pattern">
+            Quantity should be a number </span>
+
+        </span>
+      </div>
+      <div class="col-md-6">
+        <label for="address">Rate Per Item *</label>
+        <input formControlName="rate" class="form-control" placeholder="Enter rate per item" />
+        <span class="error-text" *ngIf="(form.rate.touched || submitted)">
+          <span *ngIf="form.rate.errors?.required">
+            Rate Per Item is required </span>
+          <span *ngIf="form.rate.errors?.pattern">
+            Rate Per Item should be a number </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 topPadding">
+        <button (click)="onCancel()" class="btn">Cancel</button>
+        <button type="submit" [disabled]="addItemForm.invalid" (click)="onSave()"
+          class="btn btn-primary btn-sm btnColor">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

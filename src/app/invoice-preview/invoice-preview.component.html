@@ -1,0 +1,90 @@
+<form [formGroup]="invoiceForm" class="borderAround">
+  <div class="form-group row">
+    <div class="col-md-7 section1 border-bottom">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square">
+            Logo
+          </div>
+        </div>
+        <div class="col-md-9 invoice-details">
+          <h6>
+            {{ businessDetails !== undefined ? businessDetails.business : "Business Name" }}
+          </h6>
+          <div class="bodyText" *ngIf="businessDetails">
+            {{ businessDetails.address }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 border-bottom">
+      <span class="row">
+        <div class="col-md-6">
+          <label for="business">Sales Invoice No</label>
+          <input formControlName="invoiceNo" class="form-control" placeholder="Invoice No" />
+        </div>
+        <div class="col-md-6">
+          <label for="business">Invoice Date</label>
+          <input type="date" class="form-control" formControlName="invoiceDate" placeholder="Invoice Date" />
+        </div>
+      </span>
+    </div>
+  </div>
+  <div class="col-md-12 border-bottom">
+    <div class="bold-text">BILL TO</div>
+    <div *ngIf="!billingParty" class="col-md-12 addRow" (click)="addParty()">
+      + Add Party to your invoice
+    </div>
+    <div *ngIf="billingParty">
+      <h6>{{ billingParty.partyName }}</h6>
+      <div class="bodyText">{{ billingParty.address }}</div>
+      <div class="bodyText"> {{ billingParty.mblNumber }}</div>
+    </div>
+  </div>
+  <div class="col-md-12 border-bottom">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 margin-bottom margin-top">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>ITEMS</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>QUANTITY</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef>RATE/ITEM (₹)</th>
+        <td mat-cell *matCellDef="let element">₹ {{ element.rate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>AMOUNT (₹)</th>
+        <td mat-cell *matCellDef="let element">
+          ₹ {{ element.quantity * element.rate }}
+          <span class="material-icons del_icon" (click)="deleteRow(element)">
+            delete_outline
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns">
+      </tr>
+    </table>
+    <div class="col-md-12 addRow addItem" (click)="addItem()">
+      + Add Items to your invoice
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7 section1 border-bottom"></div>
+    <div class="col-md-5 border-bottom">
+      <div class="row border-bottom">
+        <div class="col-md-8 bold-text txtPadding">Total Amount</div>
+        <div class="col-md-4 bold-text txtPadding">
+          ₹ {{ totalAmount ? totalAmount : 0 }}
+        </div>
+      </div>
+      <div class="row" style="min-height: 20vh"></div>
+    </div>
+  </div>
+</form>
